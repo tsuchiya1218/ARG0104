@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
-	<title>ARAGIN弁当 トップページ</title>
+	<title>ARAGIN弁当 ログインページ</title>
 	<link rel="stylesheet" href="/css/common.css">
 </head>
 <body>

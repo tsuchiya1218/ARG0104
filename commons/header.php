@@ -7,8 +7,8 @@
         if (false) { //TODO:ログインしているか判定
             print '<li><a href="/userEntry/userMenu.php">会員メニュー</a></li>';
         }else{
-            print '<li><a href="/login/login.php">ログイン</a></li>
-            <li><a href="/userEntry/userRegister.php">新規会員登録</a></li>';
+            print '<li><a href="../login/login.php">ログイン</a></li>
+            <li><a href="../userEntry/userRegister.php">新規会員登録</a></li>';
         }
         ?>
     </ul>
