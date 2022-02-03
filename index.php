@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>ARAGIN弁当 トップページ</title>
 	<link rel="stylesheet" href="css/common.css">
+
 </head>
 <body>
 	<div class="wrap">

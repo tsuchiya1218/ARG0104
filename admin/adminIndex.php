@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ARAGIN弁当 管理者トップページ</title>
-	<link rel="stylesheet" href="/admin/css/adminCommon.css">
+	<link rel="stylesheet" href="/admin/css/bootstrap.css">
 </head>
 <body>
 	<div class="wrap">
@@ -14,3 +14,4 @@
 	</div>
 </body>
 </html>
+
