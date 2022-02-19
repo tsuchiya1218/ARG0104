@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['user'])) {
+if(isset($_POST['user'])) {//
 $dsn='mysql:dbname=EC;charset=utf8';
 $user='ユーザー名';
 $password='パスワード';

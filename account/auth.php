@@ -1,5 +1,4 @@
 <?php
-session_start();
 // セッションにアカウント情報がある場合
 if(isset($_SESSION['account'])){
   // 認証処理
