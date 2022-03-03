@@ -9,7 +9,7 @@
 <body>
   <div class="wrap">
     <header>
-    <?php include("../commons/header.php") ?>
+      <?php include("../commons/header.php") ?>
     </header>
     <main>
       <?php
@@ -38,11 +38,11 @@
         <h2>ログイン</h2>
         <?php echo $errorMessage; ?>
         <form action="" method="post">
-        <input type="text" name="form[email]" value="" placeholder="メールアドレスを入力して下さい。"><br>
-        <input type="password" name="form[password]" value="" placeholder="パスワードを入力して下さい。">
-        <input type="hidden" name="mode" value="login">
-        <input type="submit" name="login" value="ログイン">
-      </form>
+          <input type="text" name="form[email]" value="" placeholder="メールアドレスを入力して下さい。"><br>
+          <input type="password" name="form[password]" value="" placeholder="パスワードを入力して下さい。">
+          <input type="hidden" name="mode" value="login">
+          <input type="submit" name="login" value="ログイン">
+        </form>
       <?php } ?>
     </main>
     <footer>

@@ -1,4 +1,4 @@
-  <div class="bg-info text-white">
+  <div class="bg-pink text-white">
   	<div id="footerwrap">
   		<div class="container">
   			<div class="row">

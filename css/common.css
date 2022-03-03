@@ -1,5 +1,15 @@
-header img{
-    width: auto;
-    height: 20%;
-    max-height: 100px;
+.bg-pink {
+  background-color: palevioletred;
+}
+.btn-pink{
+  background-color: palevioletred;
+}
+
+.clickbtn{
+  border-color: palevioletred;
+  border-radius: 20%;
+  border-width: 2px;
+  border-style:solid;
+  padding: 5px;
+  width: 48px;
 }

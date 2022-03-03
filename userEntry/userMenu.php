@@ -1,11 +1,13 @@
 
 <?php include("../commons/head.php") ?>
 <body>
-  <div class="wrap">
+  <header>
     <?php include("../commons/header.php") ?>
+  </header>
     <main>
       <h1>ARAGIN弁当会員メニュー</h1>
+      <footer>
       <?php include("../commons/footer.html")?>
-  </div>
+      </footer>
 </body>
 </html>
