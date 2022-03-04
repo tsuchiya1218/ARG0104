@@ -20,15 +20,15 @@
 					<p>以下のフォームに必要情報を入力してください。</p>
 					<tr>
 						<th><label for="exampleInputEmail1" class="form-label">メールアドレス：</label></th>
-						<td><input type="email" name="email" placeholder="example@xxx.com" required></td>
+						<td><input type="email" name="mail" placeholder="example@xxx.com" required></td>
 					</tr>
 					<tr>
 						<th><label for="exampleInputPassword1" class="form-label">パスワード(半角英数字6~8文字)</label></th>
-						<td><input type="password" name="password" id="password" maxlength="8" required></td>
+						<td><input type="password" name="pass" id="password" maxlength="8" required></td>
 					</tr>
 					<tr>
 						<th><label for="exampleInputName" class="form-label">氏名(全角カナ)：</label></th>
-						<td><input type="text" name="name" required></td>
+						<td><input type="text" name="memberNAME" required></td>
 					</tr>
 					<tr>
 						<th><label for="exampleInputNumber" class="form-label">電話番号：</label></th>
@@ -41,7 +41,10 @@
 							<input type="radio" id="cash" name="payment" value="">
 							<label for="cash">現金</label>
 							<input type="submit" onclick="check()" class="clickbtn btn" value="登録">
+<<<<<<< HEAD
 							
+=======
+>>>>>>> 40ce12bdec5b5d3e3e81ff10ee143ad00c2f7975
 						</td>
 					</tr>
 				</table>
