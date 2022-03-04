@@ -2,7 +2,7 @@
 // ログイン処理
 function login($email, $password)
 {
-  $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
+  $db = new PDO('mysql:host=' . "10.64.144.5" . ';dbname=' . "20jy0115,20jy0115,20jy0115");
   $db->query('SET NAMES utf8');
   $sql = "SELECT *  FROM accounts  WHERE email = :email AND  password = :password";
   $stt = $db->prepare($sql);
@@ -22,7 +22,7 @@ function login($email, $password)
 // ログイン認証
 function authCheck($email, $password)
 {
-  $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
+  $db = new PDO('mysql:host=' . "10.64.144.5" . ';dbname=' . "20jy0115,20jy0115,20jy0115");
   $db->query('SET NAMES utf8');
   $sql = "SELECT * FROM accounts WHERE email = :email AND password = :password ";
   $stt = $db->prepare($sql);
