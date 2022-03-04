@@ -18,13 +18,18 @@
 				<table>
 					<h2>新規会員登録</h2>
 					<p>以下のフォームに必要情報を入力してください。</p>
+						
+					<tr>
+						<th><label for="exampleInputUserID" class="form-label">会員ID：</label</th>
+						<td><input type="" name="memberID" placeholder="半角数字8文字以内" required></td>
+					</tr>
 					<tr>
 						<th><label for="exampleInputEmail1" class="form-label">メールアドレス：</label></th>
 						<td><input type="email" name="mail" placeholder="example@xxx.com" required></td>
 					</tr>
 					<tr>
-						<th><label for="exampleInputPassword1" class="form-label">パスワード(半角英数字6~8文字)</label></th>
-						<td><input type="password" name="pass" id="password" maxlength="8" required></td>
+						<th><label for="exampleInputPassword1" class="form-label">パスワード</label></th>
+						<td><input type="password" name="pass" id="password" maxlength="8" placeholder="半角英数字6~8文字" required></td>
 					</tr>
 					<tr>
 						<th><label for="exampleInputName" class="form-label">氏名(全角カナ)：</label></th>
@@ -36,15 +41,13 @@
 					</tr>
 					<tr>
 						<th>支払い方法：</th>
-						<label for="credit">クレジット決済</label>
+						
 						<td><input type="radio" id="credit" name="payment" value="" required>
+						<label for="credit">クレジット決済</label>
 							<input type="radio" id="cash" name="payment" value="">
 							<label for="cash">現金</label>
 							<input type="submit" onclick="check()" class="clickbtn btn" value="登録">
-<<<<<<< HEAD
-							
-=======
->>>>>>> 40ce12bdec5b5d3e3e81ff10ee143ad00c2f7975
+
 						</td>
 					</tr>
 				</table>
