@@ -1,6 +1,8 @@
+
 <?php
-if (isset($_POST['user'])) { //
-  $dsn = 'mysql:dbname=20jy0115;charset=utf8';
+echo "cc";
+if (isset($_POST) && isset($_POST['mail']) && isset($_POST['pass']) && isset($_POST['memberNAME'])) { //
+  $dsn = 'mysql:host=' . "10.64.144.5" . ';dbname=' . "20jy0115";
   $user = '20jy0115';
   $password = '20jy0115';
   $dbh = new PDO($dsn, $user, $password);
@@ -12,4 +14,7 @@ if (isset($_POST['user'])) { //
   $stmt->bindParam(':payment', $_POST['payment']);
 
   $stmt->execute();
+}else{
+  print_r( $_POST);
 }
+?>

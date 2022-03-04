@@ -36,15 +36,16 @@
 					</tr>
 					<tr>
 						<th>支払い方法：</th>
+						<label for="credit">クレジット決済</label>
 						<td><input type="radio" id="credit" name="payment" value="" required>
-							<label for="credit">クレジット決済</label>
 							<input type="radio" id="cash" name="payment" value="">
 							<label for="cash">現金</label>
 							<input type="submit" onclick="check()" class="clickbtn btn" value="登録">
-							</from>
+							
 						</td>
 					</tr>
 				</table>
+			</form>
 		</div>
 	</main>
 	<footer>
