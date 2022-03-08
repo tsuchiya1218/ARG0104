@@ -1,21 +1,26 @@
+
+
 <?php
-// セッションにアカウント情報がある場合
-if(isset($_SESSION['account'])){
-  // 認証処理
-  $account = authCheck($_SESSION['account']['email'], $_SESSION['account']['password']);
-  if(isset($account)){
-    // ログインフラグをtrueにする
-    $login = true;
-    // セッションにユーザー情報を格納
-    $_SESSION['account'] = $account;
-  } else {
-    // ログインフラグをfalseにする
-    $login = false;
-    // セッションを破棄
-    unset($_SESSION['account']);
-  }
-// セッションにアカウント情報がない場合
-} else {
-  // ログインフラグをfalseにする
-  $login = false;
+session_start();
+
+if(isset($_POST['user'])) {
+$dsn='mysql:dbname=EC;charset=utf8';
+$user='ユーザー名';
+$password='パスワード';
+$dbh = new PDO($dsn,$user,$password);
+
+$stmt = $dbh->prepare("SELECT * FROM user WHERE id=:user");
+$stmt->bindParam(':user', $_POST['user']);
+$stmt->execute();
+if($rows = $stmt->fetch()) {
+if($rows["password"] ==  $_POST['password']) {
+print "<p>ログイン成功</p>";
+}else {
+print "<p>ログイン失敗</p>";
 }
+}else {
+print "<p>ログイン失敗</p>";
+}
+}
+
+?>
