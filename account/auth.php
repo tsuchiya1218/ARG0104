@@ -4,9 +4,9 @@
 session_start();
 
 if(isset($_POST['user'])) {
-$dsn='mysql:dbname=EC;charset=utf8';
-$user='ユーザー名';
-$password='パスワード';
+  $dsn = 'mysql:host=' . "10.64.144.5" . ';dbname=' . "20jy0115";
+  $user = '20jy0115';
+  $password = '20jy0115';
 $dbh = new PDO($dsn,$user,$password);
 
 $stmt = $dbh->prepare("SELECT * FROM user WHERE id=:user");

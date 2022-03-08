@@ -1,9 +1,7 @@
 
 <?php
-echo $_POST['payment'];
 echo "cc";
-
-if (isset($_POST) && isset($_POST['user']) && isset($_POST['mail']) && isset($_POST['pass']) && isset($_POST['memberNAME']) && isset($_POST['payment'])){
+if (isset($_POST['user']) && isset($_POST['mail']) && isset($_POST['pass'])&& isset($_POST['memberNAME'])  && isset($_POST['tel']) &&isset($_POST['payment'])) {
   $dsn = 'mysql:host=' . "10.64.144.5" . ';dbname=' . "20jy0115";
   $user = '20jy0115';
   $password = '20jy0115';
@@ -16,11 +14,15 @@ if (isset($_POST) && isset($_POST['user']) && isset($_POST['mail']) && isset($_P
   $stmt->bindParam(':tel', $_POST['tel']);
   $stmt->bindParam(':payment', $_POST['payment']);
 
-  $result=$stmt->execute();
-  var_dump($result); // ここで値を確認
-  exit();
+  echo $_POST['user'];
+  echo $_POST['mail'];
+  echo $_POST['pass'];
+  echo $_POST['memberNAME'];
+  echo $_POST['tel'];
+  echo $_POST['payment'];
+
+  $stmt->execute();
 }else{
   print_r( $_POST);
-
 }
 ?>

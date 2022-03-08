@@ -7,5 +7,5 @@ function check() {
     if (!res) {
       alert("パスワードは半角英数字で入力してください。（6文字以上）");
     }
-
+  location.href
 }
