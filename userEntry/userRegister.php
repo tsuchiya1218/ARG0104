@@ -41,10 +41,10 @@
 							<input type="radio" id="cash" name="payment" value="">
 							<label for="cash">現金</label>
 							<input type="submit" onclick="check()" class="clickbtn btn" value="登録">
-<<<<<<< HEAD
-							
-=======
->>>>>>> 40ce12bdec5b5d3e3e81ff10ee143ad00c2f7975
+
+
+
+
 						</td>
 					</tr>
 				</table>
