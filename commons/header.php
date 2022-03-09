@@ -13,7 +13,6 @@
       require_once('../account/dbaccess.php'); // データベースアクセスファイル読み込み
       require_once('../account/auth.php'); // ログイン認証ファイル読み込み
       if (isset($_SESSION['account'])) {
-        echo "ようこそ、" . $_SESSION['name'] . "さん";
 
       ?>
        <li class="nav-item active"><a class="nav-link" href="/userEntry/userMenu.php">会員メニュー</a></li>
@@ -27,7 +26,7 @@
              ログイン
            </button>
            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-             <a class="dropdown-item" href="../account/login.php">ログイン</a>
+             <a class="dropdown-item" href="../account/login.php">ユーザーログイン</a>
              <a class="dropdown-item" href="../admin/adminLogin.php">管理者ログイン</a>
            </div>
          </div>

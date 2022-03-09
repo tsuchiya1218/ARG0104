@@ -15,9 +15,7 @@
   width: 48px;
 
 }
-.dropdownmenu{
 
-}
 
 nav a:hover {
 
@@ -33,6 +31,21 @@ nav {
   padding: 8px 16px;
 }
 
-.logout{
+.logout {
   text-align: right;
+}
+
+.error {
+  color: red;
+}
+
+.menuimg {
+  width: 100px;
+  height: 70px;
+}
+
+.margin {
+  margin-bottom: 10px;
+  text-decoration: underline;
+  text-decoration-color: palevioletred;
 }

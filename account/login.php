@@ -17,7 +17,6 @@
     <table>
       <?php
 
-      session_start();
       $errorMessage = ""; // エラーメッセージ初期化
       // ログイン処理
 
@@ -25,7 +24,7 @@
         if ($account = login($_POST['mail'], $_POST['pass'])) {
           $_SESSION['account'] = $account;
           echo $name;
-           header('Location:../index/index.php');
+          header('Location:../index/index.php');
           // ログイン失敗時の表示
         } else {
           $errorMessage = "ログインに失敗しました。";

@@ -14,11 +14,11 @@ function login($mail, $pass)
   $stmt->bindParam(':pass', $pass);
   $stmt->execute();
   while ($row = $stmt->fetch()) {
-    // $result['id'] = $row['id'];
-    $result['name'] = $row['memberNAME'];
+    // $result['id'] = $row['memberId'];
+    $result['name'] = $row['memberName'];
     $result['mail'] = $row['mail'];
     $result['pass'] = $row['pass'];
-    $name = $row['memberNAME'];
+    $name = $row['memberName'];
     $_SESSION['name'] = $name;
     // echo $name;
 
@@ -42,7 +42,7 @@ function authCheck($mail, $pass)
   $stmt->execute();
   while ($row = $stmt->fetch()) {
     // $result['id'] = $row['id'];
-    $result['name'] = $row['memberNAME'];
+    $result['name'] = $row['memberName'];
     $result['mail'] = $row['mail'];
     $result['pass'] = $row['pass'];
   }

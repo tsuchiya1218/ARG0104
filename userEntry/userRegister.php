@@ -14,6 +14,11 @@
 
 	<main>
 		<div class="container py-4" id="contact">
+			<h3 class="error"><?php
+			if(isset($_SESSION['errmsg'])){
+				print($_SESSION['errmsg']);
+			}
+			?></h3>
 			<table>
 				<form action="userEntry.php" method="post" >
 
@@ -22,7 +27,7 @@
 
 					<tr>
 						<th><label for="username">会員ID：</label></th>
-						<td><input type="text" name="user" class="form-control" placeholder="半角数字6~8桁" minlength="6" maxlength="8"></td>
+						<td><input type="text" name="memberId" class="form-control" placeholder="半角数字6~8桁" minlength="6" maxlength="8"></td>
 					</tr>
 					<tr>
 						<th><label for="email" class="form-label">メールアドレス：</label></th>
@@ -34,7 +39,7 @@
 					</tr>
 					<tr>
 						<th><label for="exampleInputName" class="form-label">氏名(全角カナ)：</label></th>
-						<td><input type="text" class="form-control"  name="memberNAME" required></td>
+						<td><input type="text" class="form-control"  name="memberName" required></td>
 					</tr>
 					<tr>
 						<th><label for="exampleInputNumber" class="form-label">電話番号：</label></th>
