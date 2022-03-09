@@ -15,7 +15,9 @@
   width: 48px;
 
 }
-.dropdownmenu
+.dropdownmenu{
+
+}
 
 nav a:hover {
 
@@ -29,4 +31,8 @@ nav a:hover {
 nav {
 
   padding: 8px 16px;
+}
+
+.logout{
+  text-align: right;
 }

@@ -9,15 +9,20 @@
        <a class="nav-link" href="../order/cart.php">カート</a>
      </li>
      <?php
-      // require_once('../account/dbaccess.php'); // データベースアクセスファイル読み込み
-      // require_once('../account/auth.php'); // ログイン認証ファイル読み込み
-      if (isset($_SESSION['account'])) { //TODO:ログインしているか判定
-      ?><li class="nav-item active"><a class="nav-link" href="/userEntry/userMenu.php">会員メニュー</a></li>
+      session_start();
+      require_once('../account/dbaccess.php'); // データベースアクセスファイル読み込み
+      require_once('../account/auth.php'); // ログイン認証ファイル読み込み
+      if (isset($_SESSION['account'])) {
+        echo "ようこそ、" . $_SESSION['name'] . "さん";
+
+      ?>
+       <li class="nav-item active"><a class="nav-link" href="/userEntry/userMenu.php">会員メニュー</a></li>
+       <li class="nav-item active"><a class="nav-link logout" href="../account/logout.php">ログアウト</a></li>
      <?php
       } else {
       ?>
        <li>
-         <div class="dropdown">
+         <div class=" dropdown">
            <button class="btn btn-pink  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              ログイン
            </button>
