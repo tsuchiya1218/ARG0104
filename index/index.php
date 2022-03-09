@@ -45,11 +45,11 @@
 
           <tr>
             <th><?= $result['name'] ?></th>
-            <td>
+            <td style="width:25%">
               <img class="menuimg" src=<?= "img/" . $result['id'] . ".jpg" ?>>
             </td>
-            <td><?= $result['price'] . "円" ?></td>
-            <td><?= $result['calorie'] ?></td>
+            <td style="width:25%"><?= $result['price'] . "円" ?></td>
+            <td style="width:25%"><?= $result['calorie'] ?></td>
             <td><?= $result['evaluation'] ?></td>
           </tr>
         <?php } ?>
