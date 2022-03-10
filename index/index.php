@@ -18,7 +18,7 @@
       <br>
 
       <div class="margin">
-        <h2>メニュー</h2>
+        <h2 id="menu">メニュー</h2>
       </div>
       <?php
       try {
@@ -26,34 +26,67 @@
         $user = '20jy0115';
         $password = '20jy0115';
         $dbh = new PDO($dsn, $user, $password);
-        $stmt = $dbh->prepare("SELECT * FROM product");
+        $stmt = $dbh->prepare("SELECT * FROM product WHERE productId NOT LIKE 'c0000' order by productId desc");
+
         $stmt->execute();
-        echo 'db接続成功';
       } catch (PDOException $e) {
+        echo $stmt;
         echo 'DB接続失敗';
       }
-      ?>
-      <table>
-        <?php
-        while ($row = $stmt->fetch()) {
-          $result['id'] = $row['productId'];
-          $result['name'] = $row['productName'];
-          $result['price'] = $row['price'];
-          $result['calorie'] = $row['calorie'];
-          $result['evaluation'] = $row['evaluation'];
-        ?>
+      if (isset($_SESSION['account'])) { ?>
+        <div style="text-align:right;"><a class="h3" href="../custom/custom.php">カスタム弁当はこちら</a></div>
+      <?php } ?>
 
-          <tr>
-            <th><?= $result['name'] ?></th>
-            <td style="width:25%">
-              <img class="menuimg" src=<?= "img/" . $result['id'] . ".jpg" ?>>
-            </td>
-            <td style="width:25%"><?= $result['price'] . "円" ?></td>
-            <td style="width:25%"><?= $result['calorie'] ?></td>
-            <td><?= $result['evaluation'] ?></td>
-          </tr>
-        <?php } ?>
-      </table>
+      <form action="../order/cart.php" method="post">
+
+        <table border="1">
+
+          <?php
+          while ($row = $stmt->fetch()) {
+            $result['id'] = $row['productId'];
+            $result['name'] = $row['productName'];
+            $result['price'] = $row['price'];
+            $result['calorie'] = $row['calorie'];
+            $result['evaluation'] = $row['evaluation'];
+            $allergysql = $dbh->prepare("SELECT DISTINCT allergyName FROM productAllergy INNER JOIN  allergy ON productAllergy.allergyId = allergy.allergyId   WHERE productId = :productId");
+            $allergysql->bindParam(":productId", $result['id']);
+            $allergysql->execute();
+            $r = $allergysql->fetchAll();
+            $result['allergy'] = $r;
+          ?>
+
+
+            <tr>
+              <th style="width: 20%;"><?= $result['name'] ?></th>
+              <td style="width:10%">
+                <img class="menuimg" src=<?= "img/" . $result['id'] . ".jpg" ?>>
+              </td>
+              <td style="width:5%"><?= $result['price'] . "円" ?></td>
+              <td><?= $result['calorie'] ?></td>
+              <td><?= 'オススメ度:' . $result['evaluation'] ?></td>
+              <td><?php $str = "";
+                  foreach ($result['allergy'] as $key => $value) {
+                    $str = $str.'アレルゲン:' . $value[0] . " ";
+                  }
+                  echo $str == "" ? "アレルゲン:なし" : $str;
+                  ?></td>
+              <?php
+              if (isset($_SESSION['account'])) {
+              ?>
+                <td><input type="number" style="width:3.5em;" value="0" min="0" name=<?= '"' . $result["id"] . '"' ?>></td>
+
+              <?php
+              }
+              ?>
+            </tr>
+          <?php }
+          if (isset($_SESSION['account'])) {
+          ?>
+            <button type="submit" class="btn btn-pink rounded" style="position: fixed;bottom:10%;right:10%;display:float;z-index:999">カートに入れる</button>
+          <?php } ?>
+        </table>
+
+      </form>
     </div>
   </main>
   <?php include("../commons/footer.php") ?>

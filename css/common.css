@@ -4,6 +4,7 @@
 
 .btn-pink {
   background-color: palevioletred;
+  color: white;
 }
 
 .clickbtn {
@@ -16,6 +17,19 @@
 
 }
 
+.loginbtn {
+  border-color: palevioletred;
+  border-radius: 20%;
+  border-width: 2px;
+  border-style: solid;
+  padding: 5px;
+  width: 75px;
+  margin-left: auto
+}
+
+.dropdownmenu {
+  color: white;
+}
 
 nav a:hover {
 
@@ -48,4 +62,8 @@ nav {
   margin-bottom: 10px;
   text-decoration: underline;
   text-decoration-color: palevioletred;
+}
+
+#custom{
+  text-align: right;
 }

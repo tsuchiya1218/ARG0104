@@ -39,6 +39,9 @@
         $result['name'] = $row['memberName'];
         $result['mail'] = $row['mail'];
         $result['pass'] = $row['pass'];
+        $result['tel'] = $row['tel'];
+        $result['payment'] = $row['payment'];
+
       }
     ?>
       <div class="container py-4" id="contact">
@@ -46,7 +49,7 @@
         <h2>━━━━━━━━登録情報━━━━━━━━</h2>
         <table>
           <tr>
-            <th>会員ID:</th>
+            <th>ユーザーID:</th>
             <td> <?= $_POST['memberId'] ?> </td>
           </tr>
           <tr>

@@ -7,78 +7,99 @@
 </head>
 
 <body>
-  <div class="wrap">
-    <?php include("../commons/header.php") ?>
-    <main>
-    
-    <form method="post" action="conCustom.php" onsubmit="return checkSideDish()">
+  <?php include("../commons/header.php") ?>
+  <main>
+    <h1>カスタム弁当作成</h1>
+    <p>カスタム弁当は1つ500円です</p>
+    <form method="post" action="conCustom.php" onsubmit="return checkSideDish()" style="display:flex;flex-direction:column;align-items:center;margin-bottom:1vh;">
+      <?php
+
+      try {
+        $dsn = 'mysql:host=' . "10.64.144.5" . ';dbname=' . "20jy0115";
+        $user = '20jy0115';
+        $password = '20jy0115';
+        $dbh = new PDO($dsn, $user, $password);
+        $stmt = $dbh->prepare("SELECT * FROM product where productId like 'm%'");
+        $stmt->execute();
+      ?>
+        <p id="menu">主菜を1つ選んでください</p>
+        <div style="display:flex;flex-direction:row;flex-wrap:wrap;width:50%">
+          <?php
+          while ($r =  $stmt->fetch()) {
+          ?>
+            <div style="margin:2%;width:21%">
+              <div style="width:100%;display:flex;align-items:center;">
+                <input type="radio" name='main' value=<?= '"' . $r['productId'] . '"' ?>>
+                <div style="margin-left:1vw;text-align:center">
+                  <img src=<?= '"../index/img/' . $r['productId'] . '.jpg"' ?> style="width: 1em;height:1em;">
+                  <?= $r['productName'] ?><br>
+
+                  <small style="font-size: xx-small;">(<?= $r['calorie'] ?>)</small>
+                </div>
+              </div>
+            </div>
+          <?php
+          }
+          $stmt = $dbh->prepare("SELECT * FROM product where productId like 'h%'");
+          $stmt->execute();
+          ?>
+        </div>
+        <p id="menu">副菜を2つ選んでください</p>
+        <div style="display:flex;flex-direction:row;flex-wrap:wrap;width:50%;">
+          <?php
+          while ($r =  $stmt->fetch()) {
+          ?>
+            <div style="margin:2%;width:21%">
+              <div style="width:100%;display:flex;align-items:center;">
+                <input class="side" type="checkbox" name='sub[]' value=<?= '"' . $r['productId'] . '"' ?>>
+                <div style="margin-left:1vw;text-align:center">
+                  <img src=<?= '"../index/img/' . $r['productId'] . '.jpg"' ?> style="width: 1em;height:1em;">
+                  <?= $r['productName'] ?><br>
+
+                  <small style="font-size: xx-small;">(<?= $r['calorie'] ?>)</small>
+                </div>
+              </div>
+            </div>
+          <?php
+          }
+          ?>
+        </div>
         <?php
-            
-               try {
-                 $dsn = 'mysql:host=' . "10.64.144.5" . ';dbname=' . "20jy0115";
-                 $user = '20jy0115';
-                 $password = '20jy0115';
-                 $dbh = new PDO($dsn, $user, $password);
-                 $stmt = $dbh->prepare("SELECT * FROM product where productId like 'm%'");
-                 $stmt->execute();
-                 ?>
-                 <p>主菜を1つ選んでください</p>
-                <div style="display:flex;flex-direction:column;">
-                 <?php
-                 while ($r =  $stmt->fetch()) {
-                     ?>
-                     <div style="margin:1vw;"><input type="radio" name='main' value=<?= '"'.$r['productId'].'"' ?>><?= $r['productName'] ?></div>
-                     <?php
-                 }
-                 $stmt = $dbh->prepare("SELECT * FROM product where productId like 'h%'");
-                 $stmt->execute();
-                 ?>
-                 <p>副菜を2つ選んでください</p>
-                <div style="display:flex;flex-direction:column;">
-                 <?php
-                 while ($r =  $stmt->fetch()) {
-                     ?>
-                     <div style="margin:1vw;"><input type="radio" name='main' value=<?= '"'.$r['productId'].'"' ?>><?= $r['productName'] ?></div>
-                     <div><input class="side" type="checkbox" name="aaa[]" value="uuu">uuu</div>
-
-                     <?php
-                 }
-               } catch (PDOException $e) {
-                 echo 'DB接続失敗';
-               }
-             
+        $stmt = $dbh->prepare("SELECT * FROM product where productId like 'g%'");
+        $stmt->execute();
         ?>
-    </div>
-        <!-- <input type="radio" name="aa" value="aa" checked>aa
-        <input type="radio" name="aa" value="ii">ii
-        <input type="radio" name="aa" value="uu">uu
-        <input type="radio" name="aa" value="ee">ee
-        <input type="radio" name="aa" value="oo">oo
-        <input type="radio" name="aa" value="kk">kk
-        <input type="radio" name="aa" value="ss">ss
-        <input type="radio" name="aa" value="tt">tt -->
+        <p id="menu">ご飯を1つ選んでください</p>
+        <div style="display:flex;flex-direction:row;">
+          <?php
+          while ($r =  $stmt->fetch()) {
+          ?>
+            <div style="margin:1vw;">
+              <div style="width:100%;display:flex;align-items:center;">
+                <input type="radio" name='rice' value=<?= '"' . $r['productId'] . '"' ?> require>
+                <div style="margin-left:1vw;text-align:center">
+                  <img src=<?= '"../index/img/' . $r['productId'] . '.jpg"' ?> style="width: 1em;height:1em;">
+                  <?= $r['productName'] ?><br>
 
-        <p>副菜を2つ選択してください</p>
-        <input class="side" type="checkbox" name="aaa[]" value="aaa"checked>aaa
-        <input class="side" type="checkbox" name="aaa[]" value="iii"checked>iii
-        <input class="side" type="checkbox" name="aaa[]" value="uuu">uuu
-        <input class="side" type="checkbox" name="aaa[]" value="eee">eee
-        <input class="side" type="checkbox" name="aaa[]" value="ooo">ooo
-        <input class="side" type="checkbox" name="aaa[]" value="kkk">kkk
-        <input class="side" type="checkbox" name="aaa[]" value="sss">sss
-        <input class="side" type="checkbox" name="aaa[]" value="ttt">ttt
+                  <small style="font-size: xx-small;">(<?= $r['calorie'] ?>)</small>
+                </div>
+              </div>
+            </div>
+          <?php
+          }
+          ?>
+        </div>
+        <button type="submit">確定</button>
+      <?php
+      } catch (PDOException $e) {
+        echo 'DB接続失敗';
+      }
+      ?>
 
-        <p>ご飯を1つ選んでください</p>
-        <input type="radio" name="aaaa" value="aaaa" checked>aaaa
-        <input type="radio" name="aaaa" value="iiii" >iiii
-
-        <input type="submit" name="submit" value="送信">
     </form>
 
-    </main>
-    <?php include("../commons/footer.php") ?>
-    <script src="./custom.js"></script>
-  </div>
+  </main>
+  <?php include("../commons/footer.php") ?>
+  <script src="./custom.js"></script>
 </body>
 
 </html>
