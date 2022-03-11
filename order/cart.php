@@ -69,7 +69,7 @@
                   <td class="purchase">1個</td>
                   <td class="price">500円</td>
                   <td style="font-size:smaller"><?= $c_sumcal ?>kcal</td>
-                  <td><button type="button" onclick=<?= "removeCustom(" . $k . ")" ?>>削除</button></td>
+                  <td><button type="button" class="btn clickbtn" onclick=<?= "removeCustom(" . $k . ")" ?>>削除</button></td>
                   <td>
                     <input class="val" type="text" name=<?= '"c0000[' . $k . ']"' ?> value="0" hidden>
                     <input type="text" name=<?= '"cname[' . $k . ']"' ?> value=<?= '"' . $p_name . '"' ?> hidden>
@@ -139,7 +139,7 @@
           <input type="text" name="total" id="sumval" value="0" hidden>
           <p id="sum" class="sum"><?= '合計:' . $sum ?>円</p>
           <?php if ($sum > 0) { ?>
-            <button type="submit">購入する</button>
+            <button class="btn buybtn" type="submit">購入する</button>
           <?php } else {
             echo 'カートが空です！';
           } ?>

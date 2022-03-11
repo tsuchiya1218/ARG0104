@@ -46,7 +46,7 @@
         $orderId = rand(0, 99999999);
         $_SESSION['orderId'] = $orderId;
         $date = date("y-m-d");
-        $target_day = "2014-05-28 07:02:54";
+        $target_day = "";
         $deliveryTime = date("Y-m-d H:i:s", strtotime($target_day . "+30 hour"));
         $stmt = $dbh->prepare("INSERT INTO menuorder VALUES(:orderId,'20jy0101@jec.ac.jp',:memberId,:productId,:productName,:purchase,:total,:deliveryTime,:deliveryDay)");
         // $stmt = $dbh->prepare("SELECT * FROM menuorder WHERE  $account['id'] = memberId");

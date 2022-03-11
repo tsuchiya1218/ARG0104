@@ -64,12 +64,12 @@
               <td style="width:5%"><?= $result['price'] . "円" ?></td>
               <td><?= $result['calorie'] ?></td>
               <td><?= 'オススメ度:' . $result['evaluation'] ?></td>
-              <td><?php $str = "";
-                  foreach ($result['allergy'] as $key => $value) {
-                    $str = $str.'アレルゲン:' . $value[0] . " ";
-                  }
-                  echo $str == "" ? "アレルゲン:なし" : $str;
-                  ?></td>
+              <td><?='アレルゲン:'?> <?php  $str = "";
+                            foreach ($result['allergy'] as $key => $value) {
+                              $str = $str . $value[0] . " ";
+                            }
+                            echo $str == "" ? "なし" : $str;
+                            ?></td>
               <?php
               if (isset($_SESSION['account'])) {
               ?>

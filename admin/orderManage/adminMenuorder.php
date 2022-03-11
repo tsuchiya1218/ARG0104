@@ -19,7 +19,7 @@
                 $user = '20jy0115';
                 $password = '20jy0115';
                 $dbh = new PDO($dsn, $user, $password);
-                $stmt = $dbh->prepare("SELECT * FROM menuorder");
+                $stmt = $dbh->prepare("SELECT * FROM menuorder ORDER BY deliveryTime ASC");
                 $stmt->execute();
                 // echo 'db接続成功';
             } catch (PDOException $e) {

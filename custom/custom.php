@@ -9,8 +9,7 @@
 <body>
   <?php include("../commons/header.php") ?>
   <main>
-    <h1>カスタム弁当作成</h1>
-    <p>カスタム弁当は1つ500円です</p>
+    <h1 style="text-align: center;">カスタム弁当作成</h1>
     <form method="post" action="conCustom.php" onsubmit="return checkSideDish()" style="display:flex;flex-direction:column;align-items:center;margin-bottom:1vh;">
       <?php
 
@@ -22,7 +21,7 @@
         $stmt = $dbh->prepare("SELECT * FROM product where productId like 'm%'");
         $stmt->execute();
       ?>
-        <p id="menu">主菜を1つ選んでください</p>
+        <p id="menu">主菜を1つ選んでください ¥500</p>
         <div style="display:flex;flex-direction:row;flex-wrap:wrap;width:50%">
           <?php
           while ($r =  $stmt->fetch()) {
